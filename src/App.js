@@ -4,14 +4,19 @@ import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import Product from "./components/Product/Product";
 import Deployled from "./components/Deployed/Deployled";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
 	return <div>
-		<Header />
-		<Hero />
-		<About />
-		<Product />
-		<Deployled />
+		<BrowserRouter>
+			<Header />
+			<Routes>
+				<Route path="/" element={ <Hero /> } />
+				<Route path="/about" element={ <About /> } />
+				<Route path="/portfolio" element={ <Product /> } />
+				<Route path="/contact" element={ <Product /> } />
+			</Routes>
+		</BrowserRouter>
 	</div>;
 };
 

@@ -1,88 +1,77 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHref } from 'react-router-dom';
 
-const Product = () => {
+const Deployled = () => {
     return (
         <Container>
-            <h1>My Services</h1>
+            <h1>Deployed Projects</h1>
             <Wrapper>
                 <Card>
-                    <Hold>
-                        <Title>FrontEnd Developer</Title>
-                        <Text>I am a FrontEnd Developer, and i am working with
-                            React js
-
-                            and pure javascript to manipulate the dom of a web.</Text>
-
-                        <But>Show More</But>
-                    </Hold>
-
+                    <ImageHold>
+                        <Image src='/images/4e56629a-460b-4075-b3b9-8378da13331e.jpg' />
+                    </ImageHold>
+                    <Content>
+                        <Title href='https://david-diary-99303.web.app'>Title</Title>
+                    </Content>
+                </Card>
+                {/* <Card>
+                    <ImageHold>
+                        <Image src='/images/4e56629a-460b-4075-b3b9-8378da13331e.jpg' />
+                    </ImageHold>
+                    <Content>
+                        <Title href='https://mr-gents.heroku.com'>Title</Title>
+                    </Content>
                 </Card>
                 <Card>
-                    <Hold>
-                        <Title>UI/UX Designer</Title>
-                        <Text>
-                            I am Working with Figma to To address all issues (including breaking changes) in design structure
-                        </Text>
-
-                        <But>Show More</But>
-                    </Hold>
-
-                </Card>
-                <Card>
-                    <Hold>
-                        <Title>BackEnd Developer</Title>
-                        <Text>I am a BackEnd Developer and i am working with Node js.
-                            and other frame works like express and mongodb.
-                        </Text>
-
-                        <But>Show More</But>
-                    </Hold>
-
-                </Card>
+                    <ImageHold>
+                        <Image src='/images/4e56629a-460b-4075-b3b9-8378da13331e.jpg' />
+                    </ImageHold>
+                    <Content>
+                        <Title href='https://david-diary-99303.web.app'>Title</Title>
+                    </Content>
+                </Card> */}
             </Wrapper>
         </Container>
     );
 };
 
-export default Product;
+export default Deployled;
 
-const But = styled.div`
-    color: gold;
-    cursor: pointer;
-`;
-const Text = styled.div`
-    font-size: 14px;
-    margin-bottom: 20px;
-`;
-const Title = styled.div`
-    font-weight: 700;
-    font-size: 25px;
-
-    margin-bottom: 20px;
-`;
-const Hold = styled.div`
-    width: 90%;
+const Title = styled.a`
     color: white;
-    padding: 15px 0;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 20px;
+`;
+const Content = styled.div`
+    width: 100%;
+    /* height: 90px; */
+    background-color: rgba(0,0,0,0.9);
+`;
+const Image = styled.img`
+    width: 100%;
+    height: 100%;
+    background-color: red;
+`;
+const ImageHold = styled.div`
+    width:  100%;
+    height: 300px;
 `;
 const Card = styled.div`
     width: 300px;
-    background-color: rgba(0, 0, 0, 0.9);
-
-    border-top: 2px solid gold;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 15px;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin: 20px;
 `;
 const Wrapper = styled.div`
     width: 90%;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
 `;
 const Container = styled.div`
     width: 100%;
@@ -90,5 +79,6 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
     color: white;
 `;

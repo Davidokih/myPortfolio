@@ -19,7 +19,7 @@ const AboutMe = () => {
                         </Hold>
                         <Hold>
                             <First>
-                                Age: <strong>20 Years</strong>
+                                Address: <strong>Lagos</strong>
                             </First>
                             <Last>
                                 Nationality: <strong>Nigerian</strong>
@@ -27,20 +27,20 @@ const AboutMe = () => {
                         </Hold>
                         <Hold>
                             <First>
-                                Address: <strong>Lagos</strong>
+                                Phone: <strong>+2349162822742</strong>
                             </First>
                             <Last>
                                 Language: <strong>Nigeria English, English</strong>
                             </Last>
                         </Hold>
-                        <Hold>
+                        {/* <Hold>
                             <First>
                                 Phone: <strong>+2349162822742</strong>
                             </First>
                             <Last>
                                 Email: <strong>davidyole023@gmail.com</strong>
                             </Last>
-                        </Hold>
+                        </Hold> */}
                     </Holder>
                 </Left>
                 <Right>

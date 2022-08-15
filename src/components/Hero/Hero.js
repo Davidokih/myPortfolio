@@ -15,7 +15,7 @@ const About = () => {
             <Title><span>I'M David Okih.</span>
               <br />
               WEB/MOBILE DEVELOPER</Title>
-            <Text>I'm a Nigeria based web designer & A full stack developer focused on crafting clean & user‑friendly experiences, I am passionate about building excellent software that improves the lives of those around me.
+            <Text>I'm a Nigeria based full stack developer focused on crafting clean & user‑friendly experiences, I am passionate about building excellent software that improves the lives of those around me.
             </Text>
           </Content>
         </Right>
@@ -30,12 +30,17 @@ const Text = styled.div`
     font-weight: 600;
 `;
 const Title = styled.div`
-    font-size: 50px;
     font-weight: 700;
     margin-bottom: 30px;
 
     span{
       color: gold;
+    font-size: 50px;
+
+    }
+
+    @media (max-width: 768px){
+      font-size: 30px;
     }
 `;
 const Content = styled.div`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { IoIosHome, IoIosMailOpen } from 'react-icons/io';
 import { GoPerson } from 'react-icons/go';
@@ -7,6 +7,37 @@ import { FaOctopusDeploy } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
+
+
+    const cursor = document.querySelector(".cursor");
+    const cursor2 = document.querySelector(".cursor2");
+
+    let timeOut;
+
+    useEffect(() => {
+        document.addEventListener("mousemove", (e) => {
+            let x = e.pageX;
+            let y = e.pageY;
+
+            console.log(x, y);
+            cursor.style.top = `${y}px`;
+            cursor.style.left = `${x}px`;
+            cursor2.style.top = `${y}px`;
+            cursor2.style.left = `${x}px`;
+
+            const stopMouse = () => {
+                cursor.style.display = "none";
+                // cursor2.style.display = "none";
+            };
+            clearTimeout(timeOut);
+            timeOut = setTimeout(stopMouse, 1000);
+        });
+
+        document.addEventListener("mouseout", () => {
+            cursor.style.display = "none";
+            cursor2.style.display = "none";
+        });
+    }, []);
     return (
         <Container>
             <Wrapper>
@@ -24,12 +55,40 @@ const Header = () => {
                     <Nav2><Span to='contact'><Icon4 /></Span></Nav2>
                 </Holder2>
             </Wrapper>
+
+            <Cursor className="cursor"></Cursor>
+            <Cursor2 className="cursor2"></Cursor2>
         </Container>
     );
 };
 
 export default Header;
 
+const Cursor2 = styled.div`
+    width: 10px;
+    height: 10px;
+    /* border: 1px solid ; */
+    background-color: rgb(255, 187, 0);
+    border-radius: 50%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+`;
+const Cursor = styled.div`
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(255, 187, 0);
+    border-radius: 50%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: .1s;
+
+`;
 const Icon4 = styled(IoIosMailOpen)``;
 const Icon3 = styled(FaOctopusDeploy)``;
 const Icon2 = styled(GoPerson)``;
@@ -56,19 +115,36 @@ const Span = styled(NavLink)`
     &.active{
         background-color: rgb(255, 187, 0);
     }
+
+    @media (max-width: 920px){
+        width: 80px;
+        height: 80px;
+    }
+    @media (max-width: 768px){
+        width: 60px;
+        height: 60px;
+    }
+    @media (max-width: 540px){
+        width: 50px;
+        height: 50px;
+    }
 `;
 // const Nav = styled.div``
-const Nav2 = styled.div``;
+const Nav2 = styled.div`
+
+
+`;
 const Holder2 = styled.div`
     display: none;
 
-    @media (max-width: 768px){
+    @media (max-width: 920px){
         display: flex;
         /* flex-direction: row; */
         justify-content: space-between;
-        height: 100vh;
+        /* height: 100vh; */
         width: 100%;
         align-items: flex-end;
+        /* background-color: gray; */
     }
 `;
 const Nav = styled.div`
@@ -138,11 +214,10 @@ const Holder = styled.div`
     height: 300px;
     align-items: center;
     flex-direction: column;
-
     /* @media (max-width: 508px) {
         display: none;
     } */
-    @media (max-width: 768px){
+    @media (max-width: 920px){
         
         display: none;
         /* background-color: red; */
@@ -158,6 +233,7 @@ const Logo = styled.div`
 const Wrapper = styled.div`
     width: 95%;
     height: 100vh;
+    /* background-color: blue; */
 
     display: flex;
     justify-content: flex-end;
@@ -165,8 +241,9 @@ const Wrapper = styled.div`
     /* background-color: red; */
     /* flex-direction: row; */
 
-    @media (max-width: 768px){
+    @media (max-width: 920px){
         flex-direction: column;
+        /* width: 100%; */
     }
 `;
 const Container = styled.div`
@@ -179,6 +256,7 @@ const Container = styled.div`
     /* background-color: black; */
     color: #fff;
     position: fixed;
+    /* cursor: none; */
 
     /* max-height: 200vh; */
 `;

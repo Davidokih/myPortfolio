@@ -1,0 +1,57 @@
+
+.burger{
+     width: 40px;
+    height: 2px;
+    background-color: white;
+    /* box-shadow: 0 2px 5px rgba(255,101,47,2); */
+    transition: all .5s ease-in-out;
+}
+
+.burger::before, .burger::after{
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 5px;
+        
+
+        /* box-shadow: 0 2px 5px rgba(255,101,47,2); */
+        transition: all .5s ease-in-out;
+}
+.burger::before{
+        transform: translateY(-10px)
+        
+    }
+.burger::after{
+        transform: translateY(10px)
+    } 
+.menuBtn.open .burger{
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+/* 
+.menuBtn:hover .burger{
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+} */
+/* 
+.menuBtn:hover .burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+} */
+
+.menuBtn.open .burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+/* .menuBtn:hover .burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+} */
+.menuBtn.open .burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.slide.open {
+    left: 0;
+}

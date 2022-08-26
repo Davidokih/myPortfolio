@@ -31,6 +31,7 @@ const Text = styled.div`
 `;
 const Title = styled.div`
     font-weight: 700;
+    font-size: 20px;
     margin-bottom: 30px;
 
     span{
@@ -39,13 +40,21 @@ const Title = styled.div`
 
     }
 
+    @media (max-width: 820px){
+      font-size: 30px;
+
+      span{
+    font-size: 40px;
+
+      }
+    }
     @media (max-width: 768px){
       font-size: 30px;
     }
 `;
 const Content = styled.div`
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
     justify-content: center;
     /* width: 350px; */

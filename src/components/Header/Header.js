@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { IoIosHome, IoIosMailOpen } from 'react-icons/io';
 import { GoPerson } from 'react-icons/go';
 // import { IoMailOpenOutline } from 'react-icons/io';
-import { FaBars, FaClosedCaptioning } from 'react-icons/fa';
+import { FaBars, FaClosedCaptioning, FaLessThanEqual } from 'react-icons/fa';
 import { FaOctopusDeploy } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import "./style.css";
@@ -11,34 +11,21 @@ import "./style.css";
 const Header = () => {
 
 
-    const cursor = document.querySelector(".cursor");
-    const cursor2 = document.querySelector(".cursor2");
-    let timeOut;
-
-    // let [ menuOpen, setMenuOpen ] = useState(FaClosedCaptioning);
-
-    // useEffect(() => {
-    //     menuBtn.addEventListener("click", () => {
-    //         if (!menuOpen) {
-    //             menuBtn.classList.add('open');
-    //             setMenuOpen(true);
-    //         } else {
-    //             menuBtn.classList.remove('open');
-    //             setMenuOpen(false);
-    //         }
-    //     });
-    // });
-
     useEffect(() => {
-        window.addEventListener("mousemove", (e) => {
-            let x = e.pageX;
-            let y = e.pageY;
+        const cursor = document.querySelector(".cursor");
+        const cursor2 = document.querySelector(".cursor2");
+        let timeOut;
 
-            console.log(x, y);
+        window.addEventListener("mousemove", (e) => {
+            let x = e.clientX;
+            let y = e.clientY;
+
             cursor.style.top = `${y}px`;
             cursor.style.left = `${x}px`;
             cursor2.style.top = `${y}px`;
             cursor2.style.left = `${x}px`;
+            console.log(cursor);
+
 
             cursor.style.display = "block";
             cursor2.style.display = "block";
@@ -49,9 +36,10 @@ const Header = () => {
             };
             clearTimeout(timeOut);
             timeOut = setTimeout(stopMouse, 1000);
+
         });
 
-        document.addEventListener("mouseout", () => {
+        window.addEventListener("mouseout", () => {
             cursor.style.display = "none";
             cursor2.style.display = "none";
         });
@@ -63,7 +51,8 @@ const Header = () => {
             menuBtn.classList.toggle("open");
             mobileMenu.classList.toggle("open");
         });
-    }, []);
+
+    }, [ window ]);
     return (
         <Container>
             <Wrapper>
@@ -80,7 +69,7 @@ const Header = () => {
                     <Nav><p>Portfolio</p> <Span to='/portfolio'><Icon3 /></Span></Nav>
                     <Nav><p>Contact</p> <Span to='contact'><Icon4 /></Span></Nav>
                 </Holder>
-                <Holder2 className='slide'>
+                <Holder2 id="menu" className='slide'>
 
                     <NavHold>
                         <Nav2 to='/'><Span2><Icon1 /></Span2><p>HOME</p></Nav2>
@@ -91,8 +80,10 @@ const Header = () => {
                 </Holder2>
             </Wrapper>
 
-            <Cursor className="cursor"></Cursor>
-            <Cursor2 className="cursor2"></Cursor2>
+            <CursorHold>
+                <Cursor className="cursor" />
+                <Cursor2 className="cursor2" />
+            </CursorHold>
         </Container>
     );
 };
@@ -110,7 +101,7 @@ display: none;
     @media (max-width: 920px){
 /* position: relative; */
     width: 50px;
-    z-index: 11;
+    z-index: 90;
     height: 35px;
     /* border-radius: 5px; */
     margin-top: 30px;
@@ -125,30 +116,13 @@ display: none;
 
 `;
 
+const CursorHold = styled.div`
+`;
 const Cursor2 = styled.div`
-    width: 10px;
-    height: 10px;
-    /* border: 1px solid ; */
-    background-color: rgb(255, 187, 0);
-    border-radius: 50%;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
+   
 `;
 const Cursor = styled.div`
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgb(255, 187, 0);
-    border-radius: 50%;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: .1s;
-
+    
 `;
 const Icon4 = styled(IoIosMailOpen)``;
 const Icon3 = styled(FaOctopusDeploy)``;
@@ -234,6 +208,7 @@ const Holder2 = styled.div`
     /* bottom: 0; */
     left: -100%;
     transition: all .5s;
+    z-index: 80;
     }
 
 `;
@@ -272,6 +247,8 @@ const Nav = styled.div`
 
     :hover::before{
         transform: translateX(1);
+    transition: all 350ms;
+
     border-radius: 50px;
     opacity: 1;
 
@@ -279,7 +256,7 @@ const Nav = styled.div`
 
     p{
         opacity: 0;
-        transition: all .7s;
+        /* transition:; */
             transform: translateX(20px);
             @media (max-width: 768px){
        display: none;
@@ -293,9 +270,12 @@ const Nav = styled.div`
             transform: translateX(0);
         opacity: 1;
         }
+         ${Span}{
+        background-color: gold;
+    }
 
     }
-    
+
 `;
 const Holder = styled.div`
     display: flex;
@@ -304,15 +284,9 @@ const Holder = styled.div`
     height: 300px;
     align-items: center;
     flex-direction: column;
-    /* @media (max-width: 508px) {
-        display: none;
-    } */
-    @media (max-width: 920px){
-        
-        display: none;
-        /* background-color: red; */
-        /* justify-content: center; */
 
+    @media (max-width: 920px){
+        display: none;
     }
 `;
 const Logo = styled.div`
@@ -346,7 +320,8 @@ const Container = styled.div`
 
     @media (max-width: 920px){
         height: 50px;
+        z-index: 1111;
     }
 
-    /* max-height: 200vh; */
+
 `;

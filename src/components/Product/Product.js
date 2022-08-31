@@ -15,22 +15,6 @@ const Deployled = () => {
                         <Title href='https://david-diary-99303.web.app'>Title</Title>
                     </Content>
                 </Card>
-                {/* <Card>
-                    <ImageHold>
-                        <Image src='/images/4e56629a-460b-4075-b3b9-8378da13331e.jpg' />
-                    </ImageHold>
-                    <Content>
-                        <Title href='https://mr-gents.heroku.com'>Title</Title>
-                    </Content>
-                </Card>
-                <Card>
-                    <ImageHold>
-                        <Image src='/images/4e56629a-460b-4075-b3b9-8378da13331e.jpg' />
-                    </ImageHold>
-                    <Content>
-                        <Title href='https://david-diary-99303.web.app'>Title</Title>
-                    </Content>
-                </Card> */}
             </Wrapper>
         </Container>
     );
@@ -38,6 +22,9 @@ const Deployled = () => {
 
 export default Deployled;
 
+const Text = styled.div`
+
+`;
 const Title = styled.a`
     color: white;
     font-weight: 700;

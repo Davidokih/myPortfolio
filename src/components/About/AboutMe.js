@@ -11,36 +11,28 @@ const AboutMe = () => {
                         <h2>Personal Infos</h2>
                         <Hold>
                             <First>
-                                First Name: <strong>David</strong>
+                                First Name: <br /><strong>David</strong>
                             </First>
                             <Last>
-                                Last Name: <strong>Okih</strong>
+                                Last Name: <br /><strong>Okih</strong>
                             </Last>
                         </Hold>
                         <Hold>
                             <First>
-                                Address: <strong>Lagos</strong>
+                                Address: <br /><strong>Lagos</strong>
                             </First>
                             <Last>
-                                Nationality: <strong>Nigerian</strong>
+                                Nationality: <br /><strong>Nigerian</strong>
                             </Last>
                         </Hold>
                         <Hold>
                             <First>
-                                Phone: <strong>+2349162822742</strong>
+                                Phone: <br /><strong>+2349162822742</strong>
                             </First>
                             <Last>
-                                Language: <strong>Nigeria English, English</strong>
+                                Language: <br /><strong>Nigeria English, English</strong>
                             </Last>
                         </Hold>
-                        {/* <Hold>
-                            <First>
-                                Phone: <strong>+2349162822742</strong>
-                            </First>
-                            <Last>
-                                Email: <strong>davidyole023@gmail.com</strong>
-                            </Last>
-                        </Hold> */}
                     </Holder>
                 </Left>
                 <Right>
@@ -48,10 +40,6 @@ const AboutMe = () => {
                         <Card>
                             <Num>95%</Num>
                             <Word>React Js</Word>
-                        </Card>
-                        <Card>
-                            <Num>95%</Num>
-                            <Word>Express Js</Word>
                         </Card>
                         <Card>
                             <Num>95%</Num>
@@ -64,18 +52,6 @@ const AboutMe = () => {
                         <Card>
                             <Num>65%</Num>
                             <Word>Azure</Word>
-                        </Card>
-                        <Card>
-                            <Num>95%</Num>
-                            <Word>FireBase</Word>
-                        </Card>
-                        <Card>
-                            <Num>95%</Num>
-                            <Word>Node Js</Word>
-                        </Card>
-                        <Card>
-                            <Num>95%</Num>
-                            <Word>Redux</Word>
                         </Card>
                     </RightHold>
                 </Right>
@@ -113,6 +89,7 @@ const Hold = styled.div`
 `;
 const Holder = styled.div`
     width: 100%;
+    /* background-color: gray; */
 
     h2{
         font-size: 25px;
